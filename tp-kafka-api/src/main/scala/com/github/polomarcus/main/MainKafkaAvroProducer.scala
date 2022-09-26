@@ -12,6 +12,7 @@ object MainKafkaAvroProducer {
 
     for (i <- 0 to 20) {
       val news =  News(s"key $i", s"value $i")
+
       logger.info(s"Sending ${news.toString}")
       KafkaAvroProducerService.produce(ConfService.TOPIC_OUT, s"key$i", news)
     }
